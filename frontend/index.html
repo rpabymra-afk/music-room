@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Music Room - Join or Create</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <h1>🎵 Music Room</h1>
+        <p class="subtitle">Stream music together in real-time</p>
+      </div>
+
+      <form id="joinForm" class="form">
+        <div class="form-group">
+          <label for="secretKey">Secret Key</label>
+          <input 
+            type="text" 
+            id="secretKey" 
+            placeholder="Enter room secret key"
+            required
+            autocomplete="off"
+          >
+          <small>Use any text as a secret key. First person creates the room.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="alias">Your Alias</label>
+          <input 
+            type="text" 
+            id="alias" 
+            placeholder="Enter your display name"
+            required
+            autocomplete="off"
+            maxlength="20"
+          >
+          <small>This name will be visible to other users in the room.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          Join Room
+        </button>
+      </form>
+
+      <div id="errorMessage" class="error-message" style="display: none;"></div>
+      <div id="loadingMessage" class="loading-message" style="display: none;">
+        Connecting to room...
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <span class="icon">🎧</span>
+        <h3>Stream Music</h3>
+        <p>Share your music with friends in real-time</p>
+      </div>
+      <div class="feature">
+        <span class="icon">👥</span>
+        <h3>Listen Together</h3>
+        <p>Everyone hears the same music simultaneously</p>
+      </div>
+      <div class="feature">
+        <span class="icon">🔒</span>
+        <h3>Private Rooms</h3>
+        <p>Secure rooms with your own secret key</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/join.js"></script>
+</body>
+</html>

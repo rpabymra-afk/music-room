@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Music Room</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="room-page">
+  <div class="room-container">
+    <!-- Header -->
+    <header class="room-header">
+      <div class="room-info">
+        <h1>🎵 Music Room</h1>
+        <p class="room-name">Room: <span id="roomName"></span></p>
+        <p id="roomStatus">Connected</p>
+      </div>
+      <button id="leaveRoom" class="btn btn-secondary">Leave Room</button>
+    </header>
+
+    <!-- Main Content -->
+    <div class="room-content">
+      <!-- Users List -->
+      <aside class="users-panel">
+        <h2>Users in Room</h2>
+        <div id="usersList" class="users-list"></div>
+      </aside>
+
+      <!-- Music Player -->
+      <main class="player-panel">
+        <div class="player-card">
+          <div id="nowPlaying" class="now-playing">
+            <div class="player-icon">🎵</div>
+            <p class="status-text">No music playing</p>
+          </div>
+
+          <!-- Audio Visualizer -->
+          <div id="visualizerContainer" class="visualizer-container" style="display: none;">
+            <canvas id="audioVisualizer"></canvas>
+          </div>
+
+          <!-- Audio Element -->
+          <audio id="audioPlayer" style="display: none;"></audio>
+
+          <!-- Admin Controls -->
+          <div id="adminControls" class="admin-controls" style="display: none;">
+            <h3>Stream Music</h3>
+            <p class="control-info">Stream audio from any app on your device (Spotify, YouTube, etc.)</p>
+            
+            <div class="control-buttons">
+              <button id="startStreamBtn" class="btn btn-success btn-large">
+                🎤 Start Streaming
+              </button>
+              <button id="stopStreamBtn" class="btn btn-danger btn-large" style="display: none;">
+                ⏹️ Stop Streaming
+              </button>
+            </div>
+
+            <div id="streamingStatus" class="streaming-status" style="display: none;">
+              <div class="pulse-dot"></div>
+              <span>You are streaming</span>
+            </div>
+          </div>
+
+          <!-- Listener View -->
+          <div id="listenerView" class="listener-view" style="display: none;">
+            <p class="listener-info">
+              <span class="icon">👥</span>
+              You are listening to the stream
+            </p>
+          </div>
+
+          <!-- Instructions -->
+          <div id="instructions" class="instructions">
+            <h3>How to Stream Music</h3>
+            <ol>
+              <li>Click "Start Streaming" button</li>
+              <li>Allow microphone access when prompted</li>
+              <li>Play music from any app (Spotify, YouTube, etc.)</li>
+              <li>Music will stream to all users in the room</li>
+            </ol>
+            <p class="note">⚠️ Note: You'll need to use your device's audio output (speaker) or screen audio capture for best results.</p>
+          </div>
+        </div>
+
+        <!-- Volume Control -->
+        <div class="volume-control">
+          <label for="volumeSlider">🔊 Volume</label>
+          <input type="range" id="volumeSlider" min="0" max="100" value="80">
+          <span id="volumeValue">80%</span>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer with Version -->
+    <footer class="app-footer">
+      <p>Music Room v<span id="appVersion">1.2.0</span> | Real-time Streaming</p>
+    </footer>
+  </div>
+
+  <!-- Transfer Admin Modal -->
+  <div id="transferModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Transfer Admin Role</h3>
+      <p>Select a user to transfer admin role:</p>
+      <div id="transferUsersList" class="transfer-users-list"></div>
+      <div class="modal-actions">
+        <button id="cancelTransfer" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/room.js"></script>
+</body>
+</html>
