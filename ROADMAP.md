@@ -1,7 +1,8 @@
 # 🎵 Music Room - Product Roadmap & Future Features
 
 ## 🚀 Current Version: 1.2.0
-**Deployed:** https://music-store-ko8dp63li-ashi-thavranis-projects.vercel.app
+**Deployed on Render:** https://music-room-rj9k.onrender.com
+**GitHub:** https://github.com/rpabymra-afk/music-room
 
 ---
 

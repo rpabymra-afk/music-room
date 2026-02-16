@@ -1,5 +1,7 @@
 # 🎵 Music Room - Real-Time Music Streaming Application
 
+**🚀 Live Demo:** https://music-room-rj9k.onrender.com
+
 A responsive web application that allows users to create or join music rooms and stream audio in real-time to all participants. Built with WebRTC and WebSocket technology for low-latency, synchronized audio streaming.
 
 ## ✨ Features
